@@ -15,7 +15,7 @@ public class Task1_2 {
         // ①「JAPAN」、「AMERICA」、「KOREA」を要素の値（初期値）とする配列 countryを作成しなさい。
         String[] country ={"JAPAN", "AMERICA", "KOREA"};
         // ② ①で作成した配列の要素数を出力してください。
-        System.out.println("配列countryの要素数は" + country.length);
+        System.out.println(country.length);
 
         /* ③下記の値を保持した、要素数3のStringクラスの配列strArrayを作成しなさい。
          *   1番目（先頭）の要素に 「りんご」 を代入
