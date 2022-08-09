@@ -10,14 +10,16 @@ public class Task1_5 {
     public static void main(String[] args) {
 
         // ① 「みかん」、「りんご」、「ぶどう」、「メロン」の値を設定した配列 fruits を作成してください。
-
+        String fruits[]={"みかん","りんご","ぶどう","メロン"};
 
         // ② for文を使って①で作成した配列を出力しなさい。
-
+        for(int i =0;i< fruits.length;i++){
+          System.out.println(fruits[i]);
+        }
 
         // ③ 以下のwhile文の処理について、何をしているのかコメントを記入してください。
         /*
-        *  [ここに記入]
+        *  変数 i を 出力しその後1加算される。１ずつ出力され変数 i が100になったらその処理を終了し次の処理へ移る。
         */
         int i = 1;
         while(i <= 100) {
@@ -37,6 +39,13 @@ public class Task1_5 {
         *     8 || 8 | 16 | 24 | 32 | 40 | 48 | 56 | 64 | 72 |
         *     9 || 9 | 18 | 27 | 36 | 45 | 54 | 63 | 72 | 81 |
         */
+      for (int j = 1; j < 10; j++) {
+        System.out.print(j+" || ");
+        for (int k = 1; k < 10; k++) {
+          System.out.print(j*k+" | ");
+        }
+        System.out.println();
+      }
 
     }
 }
