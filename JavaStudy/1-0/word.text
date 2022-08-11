@@ -1,0 +1,166 @@
+■ IT
+    IT
+        Information Technology、情報技術
+        世の中のさまざまな場面において、伝統的なやり方が存在している。
+        それをコンピュータとネットワークで変えていく行為        
+    ICT
+        Information and Communication Technology、情報通信科学
+        使われ方はITとほぼ変わらない。
+        違いがあるとすればICTは「コミュニケーション」という言葉が入っているため
+        「個人からの情報発信」を強調するニュアンスが含まれている。
+    IoT
+        Internet of Things
+        モノがインターネット経由で通信すること。
+        洗濯機や冷蔵庫などのモノがインターネットに繋がることで操作したり、状態を知ることができるようになった
+
+■ OS
+    OS
+        Operating System
+        コンピューターを動かすためのソフトウェア
+        ハードウェアとソフトウェアの仲立ちをしている。
+    Windows
+        Microsoft社が開発したOS
+    macOS (Mac OS X)
+        Apple社が開発したOS
+    UNIX
+        リーナス・トーバルズさんがLinuxを作るのに参考にしたOS
+        現在 The Open Groupという業界団体が商標権を保有しており、
+        そこの認証を受けたOSだけがUNIXと名乗ることができる（Solaris,AIX,HP）
+    Linux
+        オープンソースのOS
+        誰でも無料でカスタマイズが可能
+        WindowsやmacOSと異なり、ハードウェアを作った会社に依存しない。
+
+■ 言語・環境
+    マークアップ／フロントエンド
+    HTML
+    CSS
+    JavaScript
+    jQuery
+    Java SE
+    サーバーサイド
+    .NET（C#, VB）
+    Java
+    Java SE
+    Java EE（Jakarta EE）
+    Perl
+    PHP
+    Ruby
+
+■ サーバーソフト
+    Apache
+    nginx
+    IIS
+
+■ SQL
+    SQL
+    DB2
+    MySQL
+    Maria DB
+    Oracle DB
+    PostgreSQL
+    SQLite
+    SQL Server
+    CRUD
+    トランザクション
+    コミット
+    ロールバック
+    排他制御（排他ロック）
+    楽観ロック
+    悲観ロック
+    実行計画
+    チューニング
+    パフォーマンス
+    スロークエリ
+    クエリログ
+    IDE（統合開発環境）
+    Eclipse
+    NetBeans
+    SpringToolSuite
+    DBツール
+    A5:SQL Mk-2
+    pgAdmin
+    DBeaver
+    MySQL Workbench
+    Sequel Pro
+    TeamSQL
+
+■ 肩書
+    PM
+    PL
+    PG（PE）
+    SE
+    デザイナー
+    エンジニア
+    フロントエンド・エンジニア
+    サーバーサイド・エンジニア
+    バックエンド・エンジニア
+
+■ UI（ユーザーインターフェース）
+    UI
+    CUI
+    GUI
+
+■ ファイル／ディレクトリ
+    ファイル
+    拡張子
+    ディレクトリ
+    ルート・ディレクトリ
+    カレント・ディレクトリ
+    パス
+    絶対パス
+    相対パス
+
+■ ネットワーク
+    LAN
+    WAN
+    クライアント
+    サーバー
+
+■ 各種プロトコル
+    HTTP
+    FTP
+    HTTPS
+    SSL
+    SSH
+    ポート、ポート番号
+    HTTP、FTP、SSHの各ポート番号
+    ファイアウォール
+    TCP
+
+■ IPアドレス
+    IPアドレス
+    グローバルIPアドレス
+    プライベートIPアドレス
+
+■ ドメイン
+    ドメイン
+    DNS
+    VPN
+    ブリッジ
+    プロキシサーバー
+
+■ 電子メール
+    SMTP
+    POP
+    IMAP
+
+■ セッションとクッキー
+    セッション
+    クッキー
+    キャッシュ
+
+■ DB（データベース）について
+    インデックス
+
+■ テストについて
+    フロー
+
+■ チケット管理ツール
+    タスク
+
+■ バージョン管理
+    Git
+    SVN
+    デグレ
+    マージツール
