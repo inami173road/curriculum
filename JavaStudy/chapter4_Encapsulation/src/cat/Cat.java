@@ -1,6 +1,7 @@
 package cat;
 
 public class Cat {
+	// pribvateとすることでString nameをカプセル化をすることができる。
 	private String name;
     public int age;
  
