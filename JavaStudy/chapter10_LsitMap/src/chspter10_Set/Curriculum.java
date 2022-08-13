@@ -18,6 +18,7 @@ public class Curriculum {
 		sampleSet1.add("CD");
 		sampleSet1.add("gで");
 		System.out.println("HashSetなのでランダムで表示される");
+		System.out.println(sampleSet1);
 		for (String s1 : sampleSet1) {
 			System.out.println(s1);
 		}
