@@ -15,4 +15,3 @@ public class Task extends Calculator{
     	System.out.println("plusメソッドの引数が三つの場合：" + super.plus(21,25,14));
     }
 }
-    
