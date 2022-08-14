@@ -24,7 +24,7 @@ public class Pet {
 	}
 }
 
-// Petクラスを継承したのはSetGetメソッドを流用することで、Petクラス
+// Petクラスを継承したのはSetGetメソッドを流用することで、Petクラスと似た変数の取り方をしたかったから。
 class RobotPet extends Pet {
 	public RobotPet(String name, String masterName) {
 		super(name, masterName);
