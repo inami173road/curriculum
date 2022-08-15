@@ -58,29 +58,68 @@
     Java SE
         Javaの基本機能をまとめたもの。
         Java Platform, Standard Editionの略
+        Java の機能やデータなどを利用するための呼び出し方を定義したもの。
+        日付クラスなど便利な呼び出すときに使用したりする。
     サーバーサイド
         .NET（C#, VB）
-
+            .NETの正式名称は「.NET Framework」
+            Microsoft製が提供している開発プラットフォーム
+            C#.NET
+                C#との細かい違いはあるがほぼ同義
+            VB.NET
+                正式名称は「Visual Basic .NET」
+                Microsoft性のプログラミング言語
+                Microsoftが開発している.NET環境に対応したプログラミング言語VBの後継。
+                主にWindowsやOfficeのシステム・アプリケーション開発に使われる言語
         Java
-
+            Javaのプログラムのうち「Webサーバで動くやつ」の総称をサーバーサイドJavaと呼ぶ。
+            ServletはJavaのコードの中にHTMLがあるようなもの
+            JSPは、HTMLの中にJavaのコードがあるようなものです。
+            Javaを使ってWebアプリケーションを開発するときに必要。
         Java SE
 
         Java EE（Jakarta EE）
-
+            Java Platform, Enterprise Edition の略。
+            大規模なシステムを開発する場合に必要となる API が含まれている。
+            Java EE は Java SE の拡張機能なので、Java EE を使用する場合には Java SE と合わせて使用する。
+            Java EE は 2017 年に Oracle から Eclipse Foundation に移管されたことで
+            Jakarta EE という名前に変更になった。
         Perl
-
+            サーバーサイドのスクリプト言語
+            チャットや掲示板などのCGIを利用したWebページ制作に使われていた。
+            使用頻度は減っている。
+            CGI(Common Gateway Interface)
+                ...Webサーバ上にあるプログラムを動かすための仕組み
         PHP
-
-        Ruby
-
+            Webページ制作に特化したサーバサイドのスクリプト言語
+            掲示板・問い合わせフォーム・ショッピングカートなどの動的なWebページの生成するときに使われる言語
+            MySQLとの相性はいい。
+        Ruby            
+            日本人であるまつもと ゆきひろが開発したオブジェクト指向スクリプト言語
+            Webサービスやアプリケーションに使われている。
+            フレームワークを使い構築できるWebサイトを得意としている
 
 ■ サーバーソフト
     Apache
+        正式名称は「Apache HTTP Server」
+        WebサーバソフトはWebページを表示させるのに必要なデータの保管場所
+        Apacheのメリットは
+            ・OSに依存しない。
+            ・オープンソースのため無料
+            ・処理速度が早い
+            ・後付けで機能の追加が可能
     nginx
+        読み方は「エンジンエックス」
+        Apacheに端緒である複数のデータ処理の扱いが、nginxなら高速で対応できる。
+        しかしnginxは技術的な難易度が高く初心者が扱うのに向いていない。
     IIS
+        「Internet Information Services」の略
+        Microsoftが提供するWebサーバソフト
+        Microsoft製品との親和性があり視覚的に操作がしやすい。
 
 ■ SQL
     SQL
+
     DB2
     MySQL
     Maria DB
