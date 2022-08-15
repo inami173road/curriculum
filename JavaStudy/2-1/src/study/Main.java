@@ -14,8 +14,8 @@ public class Main {
 
 		//① firstNameとlastNameという名前の変数を定義し、
 		//   firstNameには自分の名前、lastNameには自分の名字で初期化しなさい
-		String firstName ="伊波";
-		String lastName ="涼治";
+		String firstName ="Suznao";
+		String lastName ="Inami";
 
 		//getName関数の呼び出しと出力
 		System.out.println(getName(firstName, lastName));
@@ -37,7 +37,7 @@ public class Main {
 	//   引数には①で定義したfirstNameとlastNameを引数で受け取り、
 	//  連結した値を返り値とする変数を定義しなさい。
 	public static String getName(String firstName, String lastName) {
-		return firstName + lastName;
+		return laName + firstName;
 	}
 
 	//奇数の判定を行う。
