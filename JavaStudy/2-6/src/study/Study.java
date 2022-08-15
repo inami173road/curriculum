@@ -31,17 +31,23 @@ public class Study {
         	// カレンダークラスで定義されている Calendar.MONTH は0(1月)〜11(12月) まで定義が存在している。
         	// 実際の月の値は、それより　-1　の値を保持しており +1 すること実際の月と帳尻合わせしている。
         	// そのため例えば８月を表示させたい場合は、値が「7」と出力されるので、+1することで調整している。
+        	// ただしgetメソッドで加算や減算して月日を処理したい場合、
+        	// getメソッドで対応してしまうと年月日の繰り上げ切り下げされずに延々と加算減算され続ける。
+        	// 繰り上げ繰り下げの対応したい場合はaddメソッドで対応する。
         System.out.println(calendar.get(Calendar.YEAR));
         System.out.println(calendar.get(Calendar.MONTH) + 1);
         System.out.println(calendar.get(Calendar.DATE));
         // 問③ 上記の「calendar」を使用し、本日から1年2ヶ月15日先の日付を表示しなさい。
         // - この課題に関しては課題実施日によって結果が異なりますので、Wiki課題の画像とは結果が異なります。
         // - また、うるう年の場合は設定内容が正しくとも日付がズレて表示される可能性があります。
-        
+   
+        calendar.add(Calendar.YEAR, 1);
+        calendar.add(Calendar.MONTH, 3);
+        calendar.add(Calendar.DATE, 15);
         System.out.println();
-        System.out.println(calendar.get(Calendar.YEAR) + 1);
-        System.out.println(calendar.get(Calendar.MONTH) + 1 +2);
-        System.out.println(calendar.get(Calendar.DATE) + 15);
+        System.out.println(calendar.get(Calendar.YEAR));
+        System.out.println(calendar.get(Calendar.MONTH));
+        System.out.println(calendar.get(Calendar.DATE));
 
         // うるう年判定
         printLeapYear(calendar.get(Calendar.YEAR));
