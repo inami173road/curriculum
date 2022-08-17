@@ -49,7 +49,16 @@
     Ajax
 
     XML
-
+        「Extensible Markup Language」の略。
+        構造を記述するための言語で、データ管理などに使われている。
+        ちなみにSpring Bootを用いることで、XML設定を簡略化が可能。
+    jarファイル
+        「Java Archive」ファイルの略。
+        Java開発で利用するファイルをまとめて保管しているファイル
+        具体的には、コンパイル済みのclassファイル、画像などのファイルを、
+        zip形式に圧縮してまとめたファイル。
+        通常のzipファイルとは異なり、解凍せずにjarファイルの状態で使用が可能。
+        参考URL：https://style.potepan.com/articles/27234.html
     JSON
 
     ステータスコード
@@ -165,4 +174,3 @@
     カバレッジ
 
     プラットホーム
-        
