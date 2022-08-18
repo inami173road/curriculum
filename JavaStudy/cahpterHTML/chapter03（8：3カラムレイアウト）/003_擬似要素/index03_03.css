@@ -1,0 +1,9 @@
+.aa::before {
+    content: "このコンテンツを前に追加しました";
+    color: blue;
+}
+
+.aa::after {
+    content: "このコンテンツを後に追加しました";
+    color: red;
+}
