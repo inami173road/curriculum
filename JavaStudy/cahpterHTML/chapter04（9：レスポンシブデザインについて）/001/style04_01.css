@@ -1,0 +1,39 @@
+div {
+    margin: 50px;
+    padding: 100px;
+}
+
+/* メディアクエリと呼ばれる記述 */
+
+/* PC用のCSS ウィンドウ幅が767px以上の場合に適用 */
+@media screen and (min-width: 767px) {
+    .aaa {
+        background-color: aqua;
+    }
+
+    .aaa::after {
+        content: "767px以上だよ!";
+    }
+}
+
+/* タブレット用のCSS ウィンドウ幅が最大767pxまでの場合に適用 */
+@media screen and (max-width: 767px) {
+    .aaa {
+        background-color: yellow;
+    }
+
+    .aaa::after {
+        content: "767px以下だよ!!!";
+    }
+}
+
+/* スマホ用のCSS ウィンドウ幅が最大700pxまでの場合に適用 */
+@media screen and (max-width: 600px) {
+    .aaa {
+        background-color: red;
+    }
+
+    .aaa::after {
+        content: "600pxを下回ったよ!!!";
+    }
+}
