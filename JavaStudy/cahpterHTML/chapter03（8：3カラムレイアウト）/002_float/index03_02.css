@@ -1,26 +1,26 @@
-div {
-    margin: 50px;
-    padding: 100px;
-}
+        div {
+            margin: 50px;
+            padding: 100px;
+        }
 
-/* center01 と center02 の親クラスclearfixのあとに偽物のクラスを挟むことでcenter03の回り込みを防いでいる。 */
-.clearfix::after {
-    content: '';
-    display: block;
-    clear: both;
-}
+        /* center01 と center02 の親クラスclearfixのあとに偽物のクラスを挟むことでcenter03の回り込みを防いでいる。 */
+        .clearfix::after {
+            content: '';
+            display: block;
+            clear: both;
+        }
 
-.center01 {
-    background-color: coral;
-    /* float は浮かせて右端や左端に寄せている。 */
-    float: left;
-}
+        .center01 {
+            background-color: coral;
+            /* float は浮かせて右端や左端に寄せている。 */
+            float: left;
+        }
 
-.center02 {
-    background-color: aqua;
-    float: left;
-}
+        .center02 {
+            background-color: aqua;
+            float: left;
+        }
 
-.center03 {
-    background-color: greenyellow;
-}
+        .center03 {
+            background-color: greenyellow;
+        }

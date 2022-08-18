@@ -1,0 +1,169 @@
+@media screen and (min-width: 767px) {
+    .wrapper {
+        width: 400px;
+        margin: 0 auto;
+    }
+
+    .head {
+        height: 100px;
+        background-color: #141f40;
+    }
+
+    .clearfix::after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+
+    .lef {
+        width: 150px;
+        height: 250px;
+        background-color: #80bfa8;
+        float: left;
+    }
+
+    .rig {
+        width: 250px;
+        height: 250px;
+        background-color: #8c2727;
+        float: left
+    }
+
+    .foot {
+        height: 100px;
+        background-color: #d98d30;
+    }
+
+    /* CSSリセット */
+    * {
+        margin: 0;
+        padding: 0;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .wrapper {
+        width: 250px;
+        margin: 0 auto;
+    }
+
+    .head {
+        height: 100px;
+        background-color: #141f40;
+    }
+
+    .clearfix::after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+
+    .lef {
+        width: 150px;
+        height: 250px;
+        background-color: #80bfa8;
+        float: left;
+    }
+
+    .rig {
+        width: 100px;
+        height: 250px;
+        background-color: #8c2727;
+        float: left
+    }
+
+    .foot {
+        height: 100px;
+        background-color: #d98d30;
+    }
+
+    /* CSSリセット */
+    * {
+        margin: 0;
+        padding: 0;
+    }
+}
+
+@media screen and (min-width: 767px) {
+    .wrapper {
+        width: 400px;
+        margin: 0 auto;
+    }
+
+    .head {
+        height: 100px;
+        background-color: #141f40;
+    }
+
+    .clearfix::after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+
+    .lef {
+        width: 150px;
+        height: 250px;
+        background-color: #80bfa8;
+        float: left;
+    }
+
+    .rig {
+        width: 250px;
+        height: 250px;
+        background-color: #8c2727;
+        float: left
+    }
+
+    .foot {
+        height: 100px;
+        background-color: #d98d30;
+    }
+
+    /* CSSリセット */
+    * {
+        margin: 0;
+        padding: 0;
+    }
+}
+
+@media screen and (max-width: 479px) {
+    .wrapper {
+        width: 150px;
+        margin: 0 auto;
+    }
+
+    .head {
+        height: 100px;
+        background-color: #141f40;
+    }
+
+    /* .clearfix::after {
+        content: '';
+        display: block;
+        clear: both;
+    } */
+
+    .lef {
+        width: 150px;
+        height: 250px;
+        background-color: #80bfa8;
+    }
+
+    .rig {
+        width: 150px;
+        height: 250px;
+        background-color: #8c2727;
+    }
+
+    .foot {
+        height: 100px;
+        background-color: #d98d30;
+    }
+
+    /* CSSリセット */
+    * {
+        margin: 0;
+        padding: 0;
+    }
+}
