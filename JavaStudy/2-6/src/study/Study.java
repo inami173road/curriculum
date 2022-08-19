@@ -42,7 +42,7 @@ public class Study {
         // - また、うるう年の場合は設定内容が正しくとも日付がズレて表示される可能性があります。
    
         calendar.add(Calendar.YEAR, 1);
-        calendar.add(Calendar.MONTH, 3);
+        calendar.add(Calendar.MONTH, ２);
         calendar.add(Calendar.DATE, 15);
         System.out.println();
         System.out.println(calendar.get(Calendar.YEAR));
