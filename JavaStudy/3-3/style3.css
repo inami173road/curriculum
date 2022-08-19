@@ -1,0 +1,42 @@
+@media screen and (min-width: 767px) {
+    .wrapper {
+        width: 400px;
+        margin: 0 auto;
+    }
+
+    .clearfix::after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+
+    .blue {
+        height: 100px;
+        background-color: #141f40;
+    }
+
+    .grean {
+        width: 150px;
+        height: 250px;
+        background-color: #80bfa8;
+        float: left;
+    }
+
+    .brown {
+        width: 250px;
+        height: 250px;
+        background-color: #8c2727;
+        float: left
+    }
+
+    .orange {
+        height: 100px;
+        background-color: #d98d30;
+    }
+
+    /* CSSリセット */
+    * {
+        margin: 0;
+        padding: 0;
+    }
+}
