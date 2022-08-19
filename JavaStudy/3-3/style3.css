@@ -1,4 +1,4 @@
-@media screen and (min-width: 767px) {
+@media screen and (min-width: 479px) {
     .wrapper {
         width: 400px;
         margin: 0 auto;
@@ -15,6 +15,25 @@
         background-color: #141f40;
     }
 
+    .white {
+        margin: 20px;
+        width: 160px;
+        height: 60px;
+        background-color: white;
+        float: right;
+    }
+
+    .purple {
+        position: relative;
+        top: 5px;
+        left: 5px;
+        margin: 5px;
+        width: 40px;
+        height: 40px;
+        background-color: #a900ab;
+        float: left;
+    }
+
     .grean {
         width: 150px;
         height: 250px;
@@ -29,7 +48,97 @@
         float: left
     }
 
+    .pink {
+        width: 140px;
+        height: 40px;
+        box-sizing: content-box;
+        border: solid white 5px;
+        margin: 5px;
+        background-color: #ff863f;
+        position: relative;
+        top: 35px;
+        left: 40px;
+        right: 60px;
+    }
+
     .orange {
+        height: 100px;
+        background-color: #d98d30;
+    }
+
+    /* CSSリセット */
+    * {
+        margin: 0;
+        padding: 0;
+    }
+}
+
+@media screen and (max-width: 479px) {
+    .wrapper {
+        width: 200px;
+        margin: 0 auto;
+    }
+
+    .clearfix::after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+
+    .blue {
+        height: 200px;
+        background-color: #141f40;
+    }
+
+    .white {
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+        top: 20px;
+        width: 60px;
+        height: 160px;
+        background-color: white;
+    }
+
+    .purple {
+        position: relative;
+        top: 5px;
+        left: 5px;
+        margin: 5px;
+        width: 40px;
+        height: 40px;
+        background-color: #a900ab;
+        float: left;
+    }
+
+    .grean {
+        width: 200px;
+        height: 100px;
+        background-color: #80bfa8;
+        float: left;
+    }
+
+    .brown {
+        width: 200px;
+        height: 200px;
+        background-color: #8c2727;
+        float: left
+    }
+
+    .pink {
+        width: 140px;
+        height: 40px;
+        box-sizing: content-box;
+        border: solid white 5px;
+        margin: 5px;
+        background-color: #ff863f;
+        position: relative;
+        top: 20px;
+        left: 30px;
+    }
+
+    .orange {
+
         height: 100px;
         background-color: #d98d30;
     }
