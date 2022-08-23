@@ -80,6 +80,7 @@
     API
         Application Programming Interface
         「機能を公開しているソフトウェア」と「その機能を使いたいソフトウェア」をつなげる窓口みたいなもの。
+        参考URL：https://www.youtube.com/watch?v=HqvcmkFjVnw&ab_channel=%E3%81%84%E3%81%BE%E3%81%AB%E3%82%85%E3%81%AE%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0%E5%A1%BE
         WEB API
             HTTP・HTTPS通信によってやり取りするAPI。
             REST API    //参考URL：https://tech.012grp.co.jp/entry/rest_api_basics
@@ -92,9 +93,15 @@
                         ④ステートレス性
             SOAP
                 SimpleObject Access Protocol
+                異なるコンピュータ上で動作するプログラム同士がネットワークを通じてメッセージを伝え合い、
+                連携して動作するための通信プロトコル（規約）の一つ。
+                メッセージの記述にXMLを、データ伝送に主にHTTPを用いWebサービスの提供や利用に適しているとされる。
 
     Ajax
-
+        Asynchronous JavaScript ＋ XML
+        Asynchronous（エイシンクロナス）の意味は「非同期」
+        JavaScriptの非同期通信を使ってXML形式のデータをWebサーバから貰っていろいろしましょうねってやつ。
+        実装方式の一つ。
         XML
             「Extensible Markup Language」の略。
             構造を記述するための言語で、データ管理などに使われている。
@@ -107,11 +114,18 @@
             通常のzipファイルとは異なり、解凍せずにjarファイルの状態で使用が可能。
             参考URL：https://style.potepan.com/articles/27234.html
         JSON
-
+            JavaScript Object Notation
+            JavaScriptと相性が良い、ファイルの書き方ルール。
+            JavaScriptのような記法でファイルを扱いましょうってやつ。
         ステータスコード
-
+            HTTPリクエストの結果を表す3桁の数字。
+            例えば存在リクエストした結果存在しないページだったら「４０４」とかえってくるやつ。
         クロスオリジン（Cross-Origin）/CORS（Cross-Origin Resource Sharing）
-
+            同一生成元ポリシー
+                「JavaScript で自由にやりとりできるところは、
+                その JavaScript をとってきたところと同一の場所だけに制限する
+            CORS は同一生成元でないところへの要求を安全に許可する仕組み。
+            参考URL：https://javascript.keicode.com/newjs/what-is-cors.php
     バリデーション
 
     データ連携
