@@ -1,0 +1,104 @@
+SQL
+    ① SELECT文(抽出)
+        Step1 : SELECT文の使い方
+            SELECT 取得したい列名 FROM テーブル名;
+                SELECT name FROM staff;
+                    → staffテーブル の nameカラム のみ抽出する。
+                SELECT name , section FROM staff
+                    → staffテーブル の nameカラム と sectionカラム のみ抽出する。
+                SELECT * FROM staff
+                    → staffテーブル の全カラムを抽出する。
+        Step2 : 別名
+            SELECT name AS namae FROM staff; （ASは省略可）
+                → カラム名を別名(namae)として抽出する。
+        Step3 : Distinct
+            SELECT section FROM staff;
+                → DISTINCTで列名を指定すると重複分は抽出されなくなる。
+        Step4 : ORDER BY（ソート）
+            SELECT * FROM staff ORDER BY entrance_year ASC; （昇順）
+            SELECT * FROM staff ORDER BY entrance_year DESC; （降順）
+                ASCは ascending 、 DESCは descending の略。
+                ソート対象が文字列型の場合、文字コード順に並ぶ。
+            SELECT * FROM staff ORDER BY section, entrance_year DESC;
+                複数のソートキーによるソート。
+                最後のカラムから優先される。
+    ② SELECT文 - 条件指定、各種演算子
+        Step1: WHERE（条件）
+            SELECT xxxxx FROM xxxxx WHERE 列名 = 値;
+                カラムに相当する行だけを抽出される。
+        Step2 : 演算子
+            SELECT name FROM staff WHERE entrance_year <= 1999 AND section = '総務部';
+                WHERE句の後にANDのような演算子を入れることで複数条件で抽出が可能。
+        Step2 : IN演算子   
+            SELECT name, section FROM staff WHERE section = '総務部' OR section = '経理部'
+            SELECT name, section FROM staff WHERE section IN('総務部', '経理部')
+                IN演算子を使うことでOR条件の抽出が可能。
+        BETWEEN演算子
+            SELECT name FROM staff WHERE entrance_year BETWEEN 1998 AND 2000;
+            範囲指定
+        LIKE演算子
+            SELECT * FROM staff WHERE name LIKE '鈴木%';
+                「 % 」はワイルドカードと言って任意の文字列を表す。
+                鈴木の後の文字列はなんでもいい。
+            SELECT * FROM staff WHERE id LIKE '000_';
+                「 _（アンダースコア） 」
+                この場合は 000 の後は任意の１文字だけ。
+                曖昧検索
+        IS NULL演算子
+            SELECT * FROM staff WHERE section IS NULL;
+                NULLの判定
+    ③ SELECT文 - テーブルの結合
+        Step1 : テーブルの結合
+            内部結合
+            左外部結合
+            右外部結合
+    ④ SELECT文 - 集計関数
+        Step1：集計関数
+            SELECT COUNT(列名) FROM テーブル名;
+                COUNT( )	件数を数えて返却する
+                SUM( )	合計を算出して返却する
+                MAX( )	最大値を探索して返却する
+                MIN( )	最小値を探索して返却する
+                AVG( )  平均値を算出して返却する
+        Step2：GROUP BY
+            SELECT PurchaserCode, SUM(Total) FROM Order_header GROUP BY PurchaserCode;
+    ⑤ SELECT文 - 副問い合わせ（サブクエリ）
+        Step1：サブクエリ
+            仮に Goodsテーブル から平均以上の値のみ抽出したい場合以下の記述のようになる。
+                X:SELECT AVG(UnitPrice) FROM Goods;
+                Y:SELECT GoodsName, UnitPrice FROM Goods WHERE UnitPrice > 4825;
+            しかし副問い合わせ（サブクエリ）を使うと一行で済む。
+                ELECT GoodsName, UnitPrice FROM Goods WHERE UnitPrice > (SELECT AVG(UnitPrice) FROM Goods);
+                    → Yの「UnitPrice > 4825」の代わりにXのクエリ分を括弧（）で括っているだけ。
+                      括弧でくくったSELECT文がサブクエリ。
+        Step2:ANY句
+    ⑥ SELECT文 - クエリの結合
+        Step1：演算子の種類
+            和結合：UNION演算子
+                UNION演算子は、2つのクエリの出力結果の和集合を行う。2つのクエリの出力結果を結合し重複している行を削除する。
+                下記の場合、小計が5000より大きい値を出力するクエリと、小計が6000より小さい値を出力するクエリの和結合を出力される。（OR条件）
+                    SELECT SubTotal FROM Order_detail WHERE SubTotal > 5000
+                    UNION
+                    SELECT SubTotal FROM Order_detail WHERE SubTotal < 6000;
+            積結合：INTERSECT演算子
+                2つのクエリの出力結果の積集合を行う。2つのクエリの出力結果から同じものだけを出力する。
+                下記の場合、2つのクエリの出力結果の中で、同じものだけを出力する。（AND条件）
+                    SELECT SubTotal FROM Order_detail WHERE SubTotal > 5000
+                    INTERSECT
+                    SELECT SubTotal FROM Order_detail WHERE SubTotal < 6000
+            差結合：EXCEPT演算子
+                2つのクエリの出力結果の差集合を行う。
+                    SELECT A.SubTotal FROM Order_detail A WHERE A.SubTotal > 5000
+                    EXCEPT
+                    SELECT B.SubTotal FROM Order_detail B WHERE B.SubTotal < 6000
+    ⑦ INSERT文
+        テーブルにデータを挿入(追加)する際に用いる。 
+            INSERT INTO "テーブル名" (列名1, 列名2,  ・・・ ) VALUES (値1, 値2,  ・・・ )
+    ⑧ UPDATE文
+        テーブルにデータを変更(書き換え)する際に用いる。
+        WHERE句を入れないと全てのカラムが更新されるので必ずWHERE句を入れる。
+            UPDATE "テーブル名" SET "列名" = 値 WHERE "列名" = 値;
+
+        
+
+
