@@ -1,0 +1,62 @@
+Schoo_JavaFW
+    1章：概要
+        01限目：FWの概要
+            プログラムにおけるFW
+                ・FWとはプロが考案して庶民でも使えるようにしたもの。
+                ・ある程度共通化することでリスクを減らし作業を効率化できるようになる。
+                ・C や M が共通化できる。
+            FWの定義
+                ・制御の反転(Inversion of Control)に基づく。
+                ・プログラムによるFWとは「プログラムが制御するのではなく、プログラムを制御する部品」のこと。
+                ・「ArrayList」のようなコレクションフレームワークもFW。
+                    → 小さな機能を提供してくれるのもEW
+            JavaのFW
+                ・Struts(1系、2系)、Spring Framework,Java EEなどある。
+                ・FWを選定する時はPGがどれだけそのFWを知っているかが前提にある。
+
+        02限目：Javaの基礎
+            JavaFWの歴史
+                ・1995年にJava EE生誕
+                ・Java EEの足りない所を補うようにさまざまなFWが作られてきた。
+                ・JCP(Java Community Process)
+                    → Java 技術の標準化(プログラムのルール作り)をする団体
+                ・JavaEEとFWは相互に作用し合って進化してきている。
+            JavaFWの種類
+                ・WebアプリケーションFW
+                    フルスタックFW
+                        Java EE
+                            JSF(JavaServer Faces)
+                        Spring
+                        Seasar
+                    Struts(1系、2系)
+                ・フルスタックFWとは？
+                    → 開発のための便利な機能が提供されているもの。
+                    → Webアプリケーションなら「３層」までカバーされていればフルスタック
+                        ３層とは？
+                            プレゼンテーション層
+                                「画面」
+                                    JSP、Services、Struts、Spring Web、Spring Core
+                            ビジネスロジック層(アプリケーション層)
+                                「処理」
+                                    Spring Core
+                            データアクセス層
+                                「データ」
+                                    Spring Data、Spring Core
+            FW毎の特徴
+                ・Apache Struts
+                    → MVCモデルの概念で開発できるFW
+
+
+sssssssssss
+    2章：FW(Struts2)の基礎
+        03限目：
+        04限目：
+        05限目：
+        06限目：
+    3章：FW(SpringFramework4)の基礎
+        07限目：
+        08限目：
+        09限目：
+        10限目：
+        11限目：
+        12限目：
