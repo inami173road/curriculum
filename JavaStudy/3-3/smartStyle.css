@@ -1,76 +1,33 @@
 @media screen and (max-width: 479px) {
     .wrapper {
         width: 200px;
-        margin: 0 auto;
-    }
-
-    .clearfix::after {
-        content: '';
-        display: block;
-        clear: both;
     }
 
     .blue {
         height: 200px;
-        background-color: #141f40;
     }
 
     .white {
-        margin: 0px;
         position: relative;
         top: 20px;
         right: 70px;
+        margin: 0px;
         width: 60px;
         height: 160px;
-        background-color: white;
-    }
-
-    .purple {
-        margin: 5px;
-        width: 40px;
-        height: 40px;
-        background-color: #a900ab;
-        position: relative;
-        top: 5px;
-        left: 5px;
-        float: left;
     }
 
     .grean {
         width: 200px;
         height: 100px;
-        background-color: #80bfa8;
-        float: left;
     }
 
     .brown {
         width: 200px;
         height: 200px;
-        background-color: #8c2727;
-        float: left
     }
 
     .pink {
-        width: 140px;
-        height: 40px;
-        box-sizing: content-box;
-        border: solid white 5px;
-        margin-bottom: 5px;
-        background-color: #ff863f;
-        position: relative;
         top: 20px;
-        left: 25px;
-    }
-
-    .orange {
-
-        height: 100px;
-        background-color: #d98d30;
-    }
-
-    /* CSSリセット */
-    * {
-        margin: 0;
-        padding: 0;
+        left: 30px;
     }
 }
