@@ -5,7 +5,7 @@ SELECT store_name AS "店舗名" FROM store_table;
 
 -- 2. 店舗情報を店舗名のABC順に抽出しなさい。
 -- [回答]
-SELECT * FROM store_table ORDER BY store_nameAbc;
+SELECT * FROM store_table ORDER BY store_name;
 
 -- 3. 在庫テーブルに店舗テーブル、商品テーブルを「内部結合」し、店舗名・商品名・在庫数を全て取得しなさい。
 -- [回答]
