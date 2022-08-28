@@ -13,7 +13,6 @@ Schoo_JavaFW
             JavaのFW
                 ・Struts(1系、2系)、Spring Framework,Java EEなどある。
                 ・FWを選定する時はPGがどれだけそのFWを知っているかが前提にある。
-
         02限目：Javaの基礎
             JavaFWの歴史
                 ・1995年にJava EE生誕
@@ -45,15 +44,35 @@ Schoo_JavaFW
             FW毎の特徴
                 ・Apache Struts
                     → MVCモデルの概念で開発できるFW
+                    → １系は2013年にサーポートを終了しているがシステムとして運用している企業はまだある。
+                    → ２系は１系を補填する形で公開されたが脆弱性を指摘されている部分もある。
+                ・Spring Framework
+                    → モジュール(機能)がたくさんある。
+                ・Seasar2
+                    → 日本製のFW
+                    → コンセプトがSpringより簡素に
+                    → 2016年にサポートが終了
+                ・Java EE
+                    → 元祖FW
 
-
-sssssssssss
-    2章：FW(Struts2)の基礎
-        03限目：
+    2章：Struts2の基礎
+        03限目：Strutsの概要
+            Strutsの概要
+                ・MVCモデルの概念で開発できるFW
+                ・１系は2013年にサポートが終了
+                ・２系
+                    ZeroConfiguration
+                        原則、設定ファイル不要でシンプルな開発が可能になった。
+                    POJO(Plain Old Java Object)
+                        普通のJavaプログラムを書くことで動作することが可能
+            Strutsの仕組み
+                １系から２系へ変遷することで同じ「Hello World」でも手順が簡便になった。
+            JSP、Servicesとの比較
+                ControllerがXMLファイルに置き換わっただけ。
         04限目：
         05限目：
         06限目：
-    3章：FW(SpringFramework4)の基礎
+    3章：SpringFramework4の基礎
         07限目：
         08限目：
         09限目：
