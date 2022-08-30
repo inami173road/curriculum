@@ -63,13 +63,22 @@ Schoo_JavaFW
                 ・２系
                     ZeroConfiguration
                         原則、設定ファイル不要でシンプルな開発が可能になった。
+                        設定が要らない。
                     POJO(Plain Old Java Object)
                         普通のJavaプログラムを書くことで動作することが可能
             Strutsの仕組み
                 １系から２系へ変遷することで同じ「Hello World」でも手順が簡便になった。
             JSP、Servicesとの比較
                 ControllerがXMLファイルに置き換わっただけ。
-        04限目：
+        04限目：環境構築
+            流れ
+                ①Struts2のライブラリの入手
+                ②eclipseにライブラリのコピー
+                    動的プロジェクトの作成
+                    WEB_INFにlibファイルをコピー
+                ③ビルドパスの設定
+                    Eclipseにコピーしたファイルのパスを通すことで存在を教えている。
+                ④「Hello World」（確認）
         05限目：
         06限目：
     3章：SpringFramework4の基礎
@@ -78,4 +87,4 @@ Schoo_JavaFW
         09限目：
         10限目：
         11限目：
-        12限目：
+        12限目：    
