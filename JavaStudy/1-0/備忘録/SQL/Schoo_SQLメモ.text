@@ -1,0 +1,19 @@
+第4回 JPAを使ったデータベース処理の構築
+    DBの確認と作成
+        SHOW DATABASES;
+        SELECT DATABASE();
+        CREATE DATABASE user;
+        SHOW DATABASES;
+        USE user;
+        SELECT DATABASE();
+
+    テーブルの作成
+        DROP TABLE user_list;
+        CREATE TABLE user_list(
+            id INTEGER(11) AUTO_INCREMENT,
+            name VARCHAR(20) NOT NULL,
+            age INTEGER(3) NOT NULL,
+            PRIMARY KEY(id)
+        );
+        SHOW TABLES;
+        DESC user_list;
