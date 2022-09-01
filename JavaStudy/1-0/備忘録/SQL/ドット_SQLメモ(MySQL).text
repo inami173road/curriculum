@@ -1,0 +1,244 @@
+
+#環境設定(Mac)
+brew install mysql                          #mysqlのインストール
+brew info mysql                             #インストールしたmysqlの情報確認
+mysql --version                             #mysqlのバージョン確認
+
+#mysql自体の起動
+mysql start                                 #サーバ起動
+mysql -uroot                                #管理者権限によるログイン
+mysql start 
+mysql -uroot  
+
+
+#DBの作成
+SHOW DATABASES;                             #DBの確認
+CREATE DATABASE test_db;                    #DBの作成 名前はなんでもいい
+DROP DATABASE test_db;                      #DBの削除
+USE test_db;                                #今から使用するDBの指定
+SELECT DATABASE();                          #現在使用しているDBの確認
+
+#レッスン１
+CREATE DATABASE test_bbb;
+SHOW DATABASES;
+DROP DATABASE test_bbb;
+SHOW DATABASES;
+
+#テーブル(表)作成
+CREATE TABLE posts(                         #テーブルの作成
+    message VARCHAR(140),                   #カラム(列)作成、文字列(文字制限)
+    likes INT                               #カラム(列)作成、整数
+);                                                         
+SHOW TABLES;                                #現在使用しているDB内でのテーブル(表)の確認
+DESC posts;                                 #作成したテーブル内のデータ型、データ構造の確認
+DROP TABLE posts;                           #テーブルの削除
+DROP TABLE IF EXISTS posts;                 #もし指定のテーブルがあれば削除
+
+#レッスン2
+SHOW TABLES; 
+DROP TABLE IF EXISTS posts;
+SHOW TABLES; 
+CREATE TABLE posts(
+    message VARCHAR(140),
+    likes INT
+);
+SHOW TABLES;
+
+#レコード(行)の挿入
+DROP TABLE IF EXISTS posts;
+SELECT * FROM posts;                        #テーブル内を表示(この時点では空)
+INSERT INTO posts(message,likes) VALUES     #レコードの挿入
+    ('Thanks',12),                              #1行目
+    ('Arigato',4);                              #2行目
+SELECT * FROM posts;                        #レコードが挿入されたのでテーブルの中身の確認ができる。
+
+#データ型の確認
+DROP TABLE IF EXISTS posts;
+CREATE TABLE posts(
+    message VARCHAR(140),
+    likes INT UNSIGNED,                      #UNSIGNEDを入れることでーの値が扱えなくなる代わり、その分扱える整数の範囲が広くなる。
+    mood DECIMAL (4, 2)  UNSIGNED,           #小数点を扱うデータ型、丸括弧に続けて全体で4桁そのうち小数点以下は2桁だよ、という指定になる。
+    lang CHAR(2)
+);
+DESC posts;
+SELECT * FROM posts;
+
+#ENUM型ーーー値を限定的に入れたい場合
+DROP TABLE IF EXISTS posts;
+CREATE TABLE posts(
+    message VARCHAR(140),
+    likes INT,
+    category ENUM('Gadget','Game','Business')       #ENUM型とすることで、それ以外の値を弾く
+);                     
+-- INSERT INTO posts(message,likes,category) VALUES
+--     ('Thanks',12,'Gadget'),
+--     ('Arigato',4,'Game'),
+--     -- ('Merci',4,'Fahion');                        #ENUM型以外の値が１つでもあるとそれ以外の正しい値も入らない。(AND条件)
+--     ('Merci',4,'Business');
+INSERT INTO posts(message,likes,category) VALUES
+    #インデックス番号でも可
+    ('Thanks',12,1),
+    ('Arigato',4,2),
+    ('Merci',4,3);
+SHOW TABLES;
+DESC posts;
+SELECT * FROM posts;
+
+#SET型ーーー１つのカラム内に複数の値を限定的に入れたい場合
+DROP TABLE IF EXISTS posts;
+CREATE TABLE posts(
+    message VARCHAR(140),
+    likes INT,
+    categories SET('Gadget', 'Game', 'Business')        #SET型とすることで、INSERTする時複数値を挿入することが可能
+);                                                      #SET型は内部的に値を数値で管理しており、左から 2^0、2^1 、2^2 といっ形で管理されている。              
+-- INSERT INTO posts(message, likes, categories) VALUES
+--     ('Thanks', 12, 'Gadget,Game'),                      #カンマ以外に空白はNG
+--     ('Arigato', 4, 'Business'),                         #複数の値は入れられるが、あくまでも一つのシングルクオーテーションで収める
+--     ('Merci', 4, 'Business,Gadget');
+INSERT INTO posts(message, likes, categories) VALUES
+    ('Thanks', 12, 3),                                  #Gadgetは1 、Gameは2なので、 1 + 2 で 3 で表現できる。    
+    ('Arigato', 4, 4),
+    ('Merci', 4, 5);                                    #Businessは4 、Gadgetが1なので、 4 + 1 で 5 で表現できる。
+SHOW TABLES;
+DESC posts;
+SELECT * FROM posts;
+
+#真偽値、日時の扱い
+DROP TABLE IF EXISTS posts;
+CREATE TABLE posts(
+    message VARCHAR(140),
+    likes INT,
+    is_draft BOOL,
+    created DATETIME
+);               
+INSERT INTO posts(message, likes, is_draft,created) VALUES
+    ('Thanks', 12, TRUE,'2022-7-30 17:00'),
+    ('Arigato', 4, FALSE,'2022-7-30'),
+    ('Merci', 4,0,NOW());
+SHOW TABLES;
+DESC posts;
+SELECT * FROM posts;
+
+#NULLの扱い
+DROP TABLE IF EXISTS posts;
+CREATE TABLE posts(
+    message VARCHAR(140),
+    -- likes INT
+    -- likes INT NOT NULL                                           #値が設定されなかったら弾きたい場合、NOT NULL をつける。
+    likes INT DEFAULT 0                                             #デフォルト値をここで設定すれば、message だけ挿入しても自動的に likes にその値が最初に設定される。
+);               
+INSERT INTO posts(message, likes) VALUES
+    ('Thanks', 12),
+    ('Arigato', 4),
+    ('Merci', 4);
+INSERT INTO posts(message) VALUES ('Gracias');                      #全てのカラムに値を設定しなくてもレコードの挿入は可能、値を設定しなかった場合NULLが入る。
+SHOW TABLES;
+DESC posts;
+SELECT * FROM posts;
+
+#値の制限---数の範囲指定、固有の値指定
+DROP TABLE IF EXISTS posts;
+CREATE TABLE posts(
+    message VARCHAR(140) UNIQUE,                                    #重複した値を入れたくなかったら UNIQUE
+    likes INT CHECK (likes >=0 AND likes <= 100)                    #値の制限は CHECK
+);               
+INSERT INTO posts (message, likes) VALUES
+    ('Thanks', 12),
+    ('Arigato', 4),
+    ('Merci', 4),
+    ('Arigato', 4);                                                 #UNIQUEが設定されていたらこの値は挿入できない。
+SELECT * FROM posts;
+
+#主キーの設定
+DROP TABLE IF EXISTS posts;
+CREATE TABLE posts(
+    id INT NOT NULL AUTO_INCREMENT,                                                #ここで主キーになるレコードを設定主キーの設定、主キーにしか使えないが連番の設定をしたい場合 AUTO_INCREMENT をつける。
+    message VARCHAR(140),
+    likes INT DEFAULT 0,
+    PRIMARY KEY(id)                                                 #括弧内に主キーとなるレコードを入れることで、そのレコードが主キーになる。
+);               
+INSERT INTO posts(message, likes) VALUES
+    ('Thanks', 12),
+    ('Arigato', 4),
+    ('Merci', 4);
+SELECT * FROM posts;
+
+
+#SELECTの抽出---WHERE
+DROP TABLE IF EXISTS posts;
+CREATE TABLE posts(
+    id INT NOT NULL AUTO_INCREMENT,
+    message VARCHAR(140),
+    likes INT DEFAULT 0,
+    PRIMARY KEY(id)
+);               
+INSERT INTO posts(message, likes) VALUES
+    ('Thanks', 12),
+    ('Arigato', 4),
+    ('Merci', 4),
+    ('GRACIAS',15),
+    ('Danke',23);
+-- SELECT * FROM posts;                                     # * は全てのカラムからとい意味、SELECTの後に来るには対象カラム
+-- SELECT id,message FROM posts;                            # idとmessageだけ抽出したい場合
+-- SELECT * FROM posts WHERE message='Danke';               #条件に合うレコードだけを抽出した場合、テーブルの後にWHERE句を入れる。
+-- SELECT * FROM posts WHERE message!='Danke'; 
+-- SELECT * FROM posts WHERE message<>'Danke'; 
+
+#SELECTの抽出---AND,BETWEEN,OR,IN
+DROP TABLE IF EXISTS posts;
+CREATE TABLE posts(
+    id INT NOT NULL AUTO_INCREMENT,
+    message VARCHAR(140),
+    likes INT DEFAULT 0,
+    PRIMARY KEY(id)
+);               
+INSERT INTO posts(message, likes) VALUES
+    ('Thanks', 12),
+    ('Arigato', 4),
+    ('Merci', 4),
+    ('GRACIAS',15),
+    ('Danke',23);
+SELECT * FROM posts WHERE likes >= 10 AND likes <= 20;      # 10以上20以下
+SELECT * FROM posts WHERE BETWEEN 10 AND 20;                # 10以上20以下
+SELECT * FROM posts WHERE NOT BETWEEN 10 AND 20;            # 10以上20以下の結果の反転
+SELECT * FROM posts WHERE likes =4 OR likes = 12;           # 4 または 12
+SELECT * FROM posts WHERE likes IN (4,12);                  # 4 または 12
+SELECT * FROM posts WHERE likes NOT IN (4,12);              # 4 または 12の結果の反転
+
+#SELECTの抽出---曖昧検索（％）
+DROP TABLE IF EXISTS posts;
+CREATE TABLE posts(
+    id INT NOT NULL AUTO_INCREMENT,
+    message VARCHAR(140),
+    likes INT DEFAULT 0,
+    PRIMARY KEY(id)
+);               
+INSERT INTO posts(message, likes) VALUES
+    ('Thank you!', 12),
+    ('thanks 100%', 4),
+    ('Gracias', 4),
+    ('Arigato_gozaimasu', 15),
+    ('Arigato! desu', 23);
+-- SELECT * FROM posts WHERE message = 'Gracias';                #完全一致による抽出
+-- SELECT * FROM posts WHERE message LIKE 't%';                  #曖昧検索、'任意の文字'% だと前方一位の抽出
+SELECT * FROM posts WHERE message LIKE BINARY 't%';              #大文字、小文字を区別したいときは BINARY
+SELECT * FROM posts WHERE message LIKE '%su';                    #曖昧検索、%'任意の文字' だと後方一位の抽出
+SELECT * FROM posts WHERE message LIKE '%i%';                    #曖昧検索、%'任意の文字'% %で挟まれた任意の文字列を含む抽出
+
+#SELECTの抽出---曖昧検索（_）
+DROP TABLE IF EXISTS posts;
+CREATE TABLE posts(
+    id INT NOT NULL AUTO_INCREMENT,
+    message VARCHAR(140),
+    likes INT DEFAULT 0,
+    PRIMARY KEY(id)
+);               
+INSERT INTO posts(message, likes) VALUES
+    ('Thank you!', 12),
+    ('thanks 100%', 4),
+    ('Gracias', 4),
+    ('Arigato_gozaimasu', 15),
+    ('Arigato! desu', 23);
+-- SELECT * FROM posts WHERE message LIKE '__a%';                      #_をいれることで〇〇文字目の値だけを抽出できる。
+-- SELECT * FROM posts WHERE message NOT LIKE '__a%';  
+-- SELECT * FROM posts WHERE message LIKE '%\_%';                      # % や _ 自体を文字列として抽出したい場合は、その前にバックスラッシュを入れる。
