@@ -1,5 +1,14 @@
 第4回 JPAを使ったデータベース処理の構築
-    DBの確認と作成
+
+    #MySQLへのログイン
+        mysql.server start    
+        mysql -u root -p
+        password
+
+    #パスワードの変更  ''内が新規パスワード
+        set password for root@localhost='password';
+
+    #DBの確認と作成
         SHOW DATABASES;
         SELECT DATABASE();
         CREATE DATABASE user;
@@ -7,7 +16,7 @@
         USE user;
         SELECT DATABASE();
 
-    テーブルの作成
+    #テーブルの作成
         DROP TABLE user_list;
         CREATE TABLE user_list(
             id INTEGER(11) AUTO_INCREMENT,
@@ -17,3 +26,12 @@
         );
         SHOW TABLES;
         DESC user_list;
+
+    #レコードの作成
+        INSERT INTO user_list(name,age) 
+            VALUES
+                ('一郎',12),
+                ('二郎',4),
+                ('三郎',29);
+        SELECT * FROM user_list;
+

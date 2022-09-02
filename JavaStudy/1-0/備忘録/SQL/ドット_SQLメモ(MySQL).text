@@ -5,10 +5,11 @@ brew info mysql                             #インストールしたmysqlの情
 mysql --version                             #mysqlのバージョン確認
 
 #mysql自体の起動
-mysql start                                 #サーバ起動
-mysql -uroot                                #管理者権限によるログイン
-mysql start 
-mysql -uroot  
+mysql.server start                                #サーバ起動
+mysql -u root                                #管理者権限によるログイン
+
+mysql.server start
+mysql -u root  
 
 
 #DBの作成
