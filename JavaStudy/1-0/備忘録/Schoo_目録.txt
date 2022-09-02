@@ -1,4 +1,5 @@
 第3回 Thymeleafで動的画面の構築
+    HTMLとJavaを連携するためのlib(わざわざJSPで書かなくてもよい)
     SchooSample19
         ログイン機能の実装
     SchooSample19-1
@@ -20,6 +21,16 @@
         更新したら表示する
 
 第5回Springフレームワークの責務と機能
-
-
-
+    SchooSample21-1
+        入力した値のリターン
+            正しい値と誤った値をチェックして返すだけ
+    SchooSample21-2
+        FormクラスとEntityクラスの違い
+        → 同じように見えるが使い方が違うので分けている（責務）
+    SchooSample21-3
+        インスタンス化したものはシングルトンだが、
+        ＠Serviceをつけたアノテーションで切り替えられる
+        Serviceクラスの切り替え
+    SchooSample21
+        FormとDBに登録する情報は違うので分ける。
+        
