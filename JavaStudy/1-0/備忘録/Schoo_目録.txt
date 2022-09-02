@@ -20,7 +20,7 @@
         値の追加と削除
         更新したら表示する
 
-第5回Springフレームワークの責務と機能
+第5回 Springフレームワークの責務と機能
     SchooSample21-1
         入力した値のリターン
             正しい値と誤った値をチェックして返すだけ
@@ -33,4 +33,37 @@
         Serviceクラスの切り替え
     SchooSample21
         FormとDBに登録する情報は違うので分ける。
-        
+
+第6回 AOPを使ってフレームワークの責務
+    Spring AOP
+    → ログ出力のためのFW
+    SchooSample22-1
+        各メソッドにSystem.out.plintln();をいれてからのコンソール出力
+    SchooSample22-2
+        逐一記述するのは手間なのでログ出力用のクラスを用意する。具体的には以下の二つ。
+            ・build.gradleファイルへ設定の追記
+            dependencies {
+	            implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+                implementation 'org.springframework.boot:spring-boot-starter-validation'
+                implementation 'org.springframework.boot:spring-boot-starter-web'
+
+                implementation 'org.springframework.boot:spring-boot-starter-aop'
+                //この一文を追記
+
+                compileOnly 'org.projectlombok:lombok'
+                developmentOnly 'org.springframework.boot:spring-boot-devtools'
+                annotationProcessor 'org.projectlombok:lombok'
+                testImplementation 'org.springframework.boot:spring-boot-starter-test'
+            }
+            ・aopパッケージMessageUtilメソッドにコンソールに出力する内容を記述する
+    SchooSample22
+        任意に箇所のAOPクラスの実装
+
+
+第7回 JUnitを使った単体テスト
+
+第8回 Webアプリケーションの設計
+
+第9回 Webアプリケーションの構築
+
+第10回 Webアプリケーションテスト
