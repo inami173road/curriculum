@@ -1,5 +1,6 @@
 第3回 Thymeleafで動的画面の構築
     HTMLとJavaを連携するためのlib(わざわざJSPで書かなくてもよい)
+    JSPの代わり
     SchooSample19
         ログイン機能の実装
     SchooSample19-1
@@ -32,7 +33,7 @@
         ＠Serviceをつけたアノテーションで切り替えられる
         Serviceクラスの切り替え
     SchooSample21
-        FormとDBに登録する情報は違うので分ける。
+        中身はほぼ同じだが、FormクラスとDBに登録するクラス(Entity)は違うので分ける。
 
 第6回 AOPを使ってフレームワークの責務
     Spring AOP
@@ -59,11 +60,59 @@
     SchooSample22
         任意に箇所のAOPクラスの実装
 
-
 第7回 JUnitを使った単体テスト
+    単体テストについてはプロジェクト作成時点で入れる機能はない
+    数ある単体テストの一つに過ぎない（他にもパターンはある）
+    SchooSample23-1
+        加算と徐算のテスト
+        テスト用のフォルダを作ってそこでテスト用のクラスを作成する
+    SchooSample23
+        入力内容のテスト        
 
 第8回 Webアプリケーションの設計
+    ・設計の仕方を学ぶ
+    ・整理の順番
+        ①機能から「画面」を考える。
+            図形ツールや手書きなどで機能に合わせた画面のだいたいのデザインを考える。
+        ②その画面に必要な「要素」は何か？
+            画面から要素となる項目を列挙する。
+            共通項目や重複している部分をまとめる。
+            役割を定義する
+        ③画面間の「制御」を考える。
+            Springでのクラスに対してどの役割なのかを振り分ける
+            Controllerクラス：画面遷移用のクラス
 
 第9回 Webアプリケーションの構築
+        ・DBの作成
+            CREATE DATABASE event_management;
+            SHOW DATABASES;
+            USE event_management;
+        ・イベントテーブルの作成
+            CREATE TABLE event(
+                event_id INTEGER AUTO_INCREMENT,
+                event_date date,    
+                event_name VARCHAR(255),
+                event_venue VARCHAR(255),
+                PRIMARY KEY(event_id)
+            );
+            SHOW TABLES;
+            DESC event;
+        ・参加者テーブルの作成
+            CREATE TABLE participant(
+                participant_id INTEGER AUTO_INCREMENT,
+                participant_name VARCHAR(255),
+                PRIMARY KEY(participant_id)
+            );
+            SHOW TABLES;
+            DESC participant;
+        ・イベント参加テーブルの作成
+            CREATE TABLE event_entry(
+                event_entry_id INTEGER AUTO_INCREMENT,
+                event_id INTEGER,
+                participant_id INTEGER,
+                PRIMARY KEY(event_entry_id)
+            );
+            SHOW TABLES;
+            DESC event_entry;
 
 第10回 Webアプリケーションテスト
