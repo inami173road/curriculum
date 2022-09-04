@@ -1,0 +1,29 @@
+３章：画面遷移（GETメソッド、POSTメソッド）、DBからの値の取得
+    GETメソッド
+        コントローラーにリクエストを投げてレスポンス（HTMLファイルとか）をもらう
+    POSTメソッド
+        サーバに何かしらの処理をしてそれに応じたレスポンスを返して欲しい場合に使う
+            ユーザ登録とかデータ参照とか
+    MySample03-1
+        このプロジェクトはただレスポンスを投げるだけ。
+            @Controller
+                画面などからHTTPリクエストを受け付けるクラスのことをコントローラー。
+                @Controllerアノテーションを付けたクラスはコントローラーになる。
+            @GetMapping
+                GETメソッドのHTTPリクエストを受け付けるためには @GetMapping を使う。
+                    サンプルコードの場合、[http://localhost:8080/hello]への
+                    GETメソッドでのHTTPリクエストを受け付けるようになる。
+                メソッドの戻り値には、拡張子を除いたHTMLのファイルパスを指定します。
+                    [src/main/resources/templates]からの相対パスを戻り値に指定。
+                    サンプルコードの場合、[src/main/resources/templates/hello.html]を指定している。
+    MySample03-2
+        @PostMapping
+            POSTメソッドのHTTPリクエストを受け取るためには@PostMappingアノテーションを使う。
+            受け付けるURLを、@PostMappingの引数に設定。
+            サンプルコードの場合、[http://localhost:8080/hello]への
+            POSTメソッドでのHTTPリクエストを受け付けるようになる。
+        @RequestParam
+            画面で入力された値をサーバーで受け取る方法。
+            メソッドの引数にこのアノテーションを付けます。
+            （そして、HTMLのname属性と一致するように、@RequestParamの引数を指定）
+    MySample03-3

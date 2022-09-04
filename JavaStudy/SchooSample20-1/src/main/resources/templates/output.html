@@ -18,7 +18,8 @@
 						<!-- Thymeleafの繰り返し処理 -->
 						<!-- modelにusersというキーでセットされてきたリストを繰り返しで表示 -->
 						<!-- リスト（配列）のusersから1ずつ要素を取得してuser（変数）に格納 -->
-						<ul class="list-group list-group-flush" th:each="user : ${users}">
+						<ul class="list-group list-group-flush" 
+							th:each="user : ${users}">
 							<!-- user（UserListクラス）のgetNameメソッドを実行して名前を画面に表示 -->
 							<li th:text="${user.name}"></li>
 						</ul>
