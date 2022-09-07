@@ -37,7 +37,10 @@ public class SchooController {
 		// ログイン状態のチェック
 		String login = (String)session.getAttribute("login");
 		if ("ok".equals(login)) {
-			model.addAttribute("userName", "スクー太郎");
+			model.addAttribute("userMan", "ミスター");
+			System.out.println("ログインに成功しました");
+			System.out.println(model.addAttribute("userMan", "ミスター"));
+			System.out.println("----------------------------------------------");
 			return "logout";
 		} else {
 			return "index";
@@ -55,7 +58,8 @@ public class SchooController {
 						Model model) {
 		// 入力チェック
 		if (bindingResult.hasErrors()) {
-			model.addAttribute("message", "ログインできませんでした");
+			model.addAttribute("message", "ちゃんと入力してください。");
+			System.out.println("ちゃんと入力してください。");
 			return "index";
 		}
 
@@ -63,10 +67,12 @@ public class SchooController {
 		if ("schoo".equals(loginForm.getLoginId()) &&
 			"pass".equals(loginForm.getLoginPassword())) {
 			session.setAttribute("login", "ok");
-			model.addAttribute("userName", "スクー太郎");
+			model.addAttribute("userMan", "ミスター");
+			System.out.println(model.addAttribute("userMan", "ミスター"));
 			return "login";
 		} else {
-			model.addAttribute("message", "ログインできませんでした");
+			model.addAttribute("message", "IDまたはパスが違います。ログインできません。");
+			System.out.println("IDまたはパスが違います。ログインできません。");
 			return "index";
 		}
 	}
@@ -78,6 +84,9 @@ public class SchooController {
 	public String logout(Model model) {
 		session.invalidate();
 		model.addAttribute("message", "ログアウトしました");
+		System.out.println("ログアウトしました");
+		System.out.println("----------------------------------------------");
+		
 		return "index";
 	}
 }

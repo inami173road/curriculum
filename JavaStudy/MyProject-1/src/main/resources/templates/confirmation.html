@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="jp">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>確認</title>
+    </head>
+    <body>
+	    <h2>登録された情報</h2>
+    	<div th:object="${userEntity}">
+			ユーザID:<span 
+						type="text" 
+						id="loginId"
+						name="loginId" 
+						th:text="*{loginId}">
+					</span><br>
+			ユーザパスワード:<span
+						type="password"
+						id="password" 
+						name="loginPassword" 
+						th:text="*{loginPassword}"></span><br>
+				ユーザネーム:<span 
+						type="text"
+						id="loginUsername" 
+						name="loginUsername"
+						th:text="*{loginUsername}"></span><br>
+		</div>
+		<form 
+			action="add" 
+			method="post" 
+			th:object="${userEntity}">
+			<!-- ログインID --> 
+				<span
+					type="text" 
+					id="id"
+					name="loginId" 
+					th:value="*{loginId}"></span><br>
+			<!-- パスワード -->
+				<span 
+					type="password"
+					id="password" 
+					name="loginPassword" 
+					th:value="*{loginPassword}"></span><br>
+			<!-- ユーザーネーム -->
+			<span
+					type="text"
+					id="name" 
+					name="loginUsername" 
+					th:value="*{loginUsername}"></span><br>
+			<button type="submit">ログイン</button>
+		</form>
+		<form 
+			action="change" 
+			method="get">
+		<button type="submit">やっぱり考え直す</button>
+	</form>
+    </body>
+</html>

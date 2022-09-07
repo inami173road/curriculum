@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="jp">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Insert title here</title>
+	</head>
+	<body>
+	<h2>新規登録</h2>
+		<form
+			action="user-input" 
+			method="post">
+			<!-- ログインID -->
+				<label for="id">Login ID</label> 
+				<input 
+					type="text" 
+					id="id"
+					name="loginId" 
+					th:value="*{loginId}"><br>
+			<!-- パスワード -->
+				<label for="passowrd">Password</label> 
+				<input 
+					type="password"
+					id="password" 
+					name="loginPassword" 
+					th:value="*{loginPassword}"><br>
+			<!-- ユーザーネーム -->	
+			<label for="username">ユーザー名</label> 	
+				<input 
+					type="text"
+					id="name" 
+					name="loginUsername" 
+					th:value="*{loginUsername}"><br>
+			<button type="submit">確認ページへ</button>
+		</form>
+	</body>
+</html>

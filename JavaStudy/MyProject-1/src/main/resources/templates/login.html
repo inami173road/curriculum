@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Login</title>
+	</head>
+	<body>
+		<h2>Login OK</h2>
+		<div th:object="${userEntity}">
+			ユーザ名：<span th:text="*{loginUsername}"></span>さん
+		</div>
+		<p>ログインしました</p>
+		<form 
+			action="/" 
+			method="get">
+			<button type="submit">page01へ</button>
+		</form>
+	</body>
+</html>

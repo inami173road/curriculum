@@ -15,7 +15,7 @@
 				<div class="row">
 					<div class="col-md-9 col-lg-8 mx-auto">
 						<h3 class="login-heading my-4">Login</h3>
-						<p th:text="${message}"></p>
+						<p [[${message}]]></p>
 						<form action="login" method="post" th:object="${loginForm}">
 							<!-- ログインID -->
 							<div class="form-label-group">

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Logout</title>
+	</head>
+	<body>
+		<h2>Logout</h2>
+			ユーザ名：<span th:text="${userMan}"></span>
+		<p>ログアウトします</p>
+		<form 
+			action="logout" 
+			method="get">
+			<button type="submit">ログアウト</button>
+		</form>
+	</body>
+</html>

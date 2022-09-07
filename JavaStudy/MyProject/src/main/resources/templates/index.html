@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Login</title>
+	</head>
+	<body>
+		<h2 class="login-heading my-4">Login</h2>
+		<p [[${message}]]></p>
+		<form 
+			action="login" 
+			method="post" 
+			th:object="${loginForm}">
+			<!-- ログインID -->
+				<label for="id">Login ID</label> 
+				<input type="text" 
+					id="id"
+					name="loginId" 
+					th:value="*{loginId}" 
+					class="form-control"><br>
+			<!-- パスワード -->
+				<label for="passowrd">Password</label> 
+				<input 
+					type="password"
+					id="password" 
+					name="loginPassword" 
+					th:value="*{loginPassword}"><br>
+			<button type="submit">ログイン</button>
+		</form>
+	</body>
+</html>

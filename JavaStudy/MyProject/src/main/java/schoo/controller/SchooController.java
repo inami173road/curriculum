@@ -27,19 +27,16 @@ public class SchooController {
 		return new LoginForm();
 	}
 
-	/**
-	 * トップページの表示<br>
-	 * ログイン済みの場合はログアウト画面を表示
-	 * @return
-	 */
 	@GetMapping("/")
 	public String index(Model model) {
 		// ログイン状態のチェック
 		String login = (String)session.getAttribute("login");
-		if ("ok".equals(login)) {
-			model.addAttribute("userName", "スクー太郎");
-			return "logout";
+		System.out.println("indexメソッド  現在のセッション状態：" + login);
+		if ("on".equals(login)) {
+			
+			return "page01";
 		} else {
+			System.out.println("現在のセッション状態：" + login);
 			return "index";
 		}
 	}
@@ -55,29 +52,36 @@ public class SchooController {
 						Model model) {
 		// 入力チェック
 		if (bindingResult.hasErrors()) {
-			model.addAttribute("message", "ログインできませんでした");
 			return "index";
 		}
-
 		// IDとパスワードのチェック
 		if ("schoo".equals(loginForm.getLoginId()) &&
 			"pass".equals(loginForm.getLoginPassword())) {
-			session.setAttribute("login", "ok");
-			model.addAttribute("userName", "スクー太郎");
+			session.setAttribute("login", "on");
+			model.addAttribute("userMan", "ミスター");
 			return "login";
 		} else {
-			model.addAttribute("message", "ログインできませんでした");
+			model.addAttribute("message", "IDまたはパスが違います。ログインできません。");
+			System.out.println("IDまたはパスが違います。ログインできません。");
 			return "index";
 		}
 	}
-	/**
-	 * ログアウト処理
-	 * @return
-	 */
+	
+	//page01 → logout
+	@GetMapping("page01")
+	public String changeTologout(Model model) {
+		model.addAttribute("userMan", "ミスター");
+		String login = (String)session.getAttribute("login");
+		System.out.println("changeTologout  現在のセッション状態：" + login);
+		return "logout";
+	}
+	
+	//ログアウト処理
 	@GetMapping("logout")
 	public String logout(Model model) {
-		session.invalidate();
-		model.addAttribute("message", "ログアウトしました");
+		session.invalidate();//セッション破棄
+		String login = (String)session.getAttribute("login");
+		System.out.println("logoutメソッド  現在のセッション状態：" + login);
 		return "index";
 	}
 }
