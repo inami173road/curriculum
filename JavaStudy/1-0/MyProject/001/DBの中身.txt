@@ -59,3 +59,29 @@ RPG
         影響する範囲が広く、ゲームによって重要性が大きく変わるステータス。
     カルマ値
         天  聖  善  中  悪  邪  魔    
+
+
+
+
+    SHOW DATABASES;
+    SELECT DATABASE();
+    CREATE DATABASE user;
+    SHOW DATABASES;
+    USE user;
+    SELECT DATABASE();
+
+    DROP TABLE user_accuont;
+    CREATE TABLE user_accuont(
+        id INTEGER(11) AUTO_INCREMENT,
+        loginusername VARCHAR(20) NOT NULL,
+        loginid VARCHAR(20) NOT NULL,
+        loginpassword VARCHAR(20) NOT NULL,
+        PRIMARY KEY(id)
+        );
+    SHOW TABLES;
+    DESC user_accuont;
+
+    INSERT INTO user_accuont(loginusername,loginid,loginpassword) 
+            VALUES
+                ('master',"masterID","password");
+    SELECT * FROM user_accuont;

@@ -39,8 +39,8 @@ public class SchooController {
 	 */
 	@PostMapping("user-input")
 	public String regist(@Validated @ModelAttribute UserForm userForm,
-						BindingResult bindingResult,
-						Model model) {
+			BindingResult bindingResult,
+			Model model) {
 		// 今回は登録処理はなくてOKです
 		// 入力値のチェックを行い結果によって次の画面を変更
 		if(bindingResult.hasErrors()) {

@@ -17,7 +17,6 @@ public class UserServiceImple implements UserService {
 		// ユーザIDを更新（IDも本来はDBなどで管理する）
 		userEntity.setLoginId(userForm.getLoginId());
 		userEntity.setLoginPassword(userForm.getLoginPassword());
-		userEntity.setLoginUsername(userForm.getLoginUsername());
 		return userEntity;
 	}
 }

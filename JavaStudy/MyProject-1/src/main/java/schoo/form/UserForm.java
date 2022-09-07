@@ -9,5 +9,4 @@ import lombok.Data;
 public class UserForm {
 	private String loginId;
 	private String loginPassword;
-	private String loginUsername;
 }
