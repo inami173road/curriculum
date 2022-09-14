@@ -8,6 +8,23 @@
     SchooSample19-3
     SchooSample19-4
 
+
+    Thymeleaf
+        Model
+            HTMLとJavaの間で受け渡すためのクラス
+            formクラスを呼び出すときに必要
+
+        ${userform}
+            $  (変数式)
+                指定した変数名を取得
+        *{name}
+            *   (選択変数式)
+                オブジェクトのプロパティを指定してその中身を取得する。
+        th:object=${userform}
+            th:objectは、Fromクラスのオブジェクトを使用する
+        th:text=*{name}
+            th:textは、指定したタグの値として表示する
+
         セッション
             一連の処理の始まりから終わりまでを表す概念
 

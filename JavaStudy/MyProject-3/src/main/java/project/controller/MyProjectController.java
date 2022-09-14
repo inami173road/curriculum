@@ -57,8 +57,11 @@ public class MyProjectController {
 	}
 	
 	@PostMapping("serch")
-	public String serchUser(@RequestParam Integer id) {
-		userAccuontService.delete(id);
+	public String serchUser(
+			@RequestParam Integer id,
+			Model model){
+		List<UserAccuontEntiy> userid = userAccuontService.findAll();
+		model.addAttribute("userid", userid.get(id));
 		return "redirect:/";
 	}
 	

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>output:MyP3</title>
+	</head>
+	<body>
+		<h3>ユーザ一覧</h3>
+		<!-- Thymeleafの繰り返し処理 -->
+		<!-- modelにusersというキーでセットされてきたリストを繰り返しで表示 -->
+		<!-- リスト（配列）のusersから1ずつ要素を取得してuser（変数）に格納 -->
+		<table>
+			<!-- user（UserListクラス）のgetNameメソッドを実行して名前を画面に表示 -->
+			<tr>
+				<th>ID</th>
+				<th>名前</th>
+				<th>ユーザーID</th>
+				<th>パスワード</th>
+				<th>オプション</th>
+			</tr>
+			<tr th:each="user:${users}">
+				<td th:text="${user.id}"></td>
+				<td th:text="${user.loginUsername}"></td>
+				<td th:text="${user.loginId}"></td>
+				<td th:text="${user.loginPassword}"></td>
+				<td><a th:href="@{delete(id=${user.id})}">削除する</a></td>
+			</tr>
+		</table><br>
+		
+		<h3>ユーザ追加</h3>
+		<form 
+			action="add" 
+			method="post">
+			<label for="loginUsername">名前</label> 
+			<input 
+				type="text"
+				id="loginUsername" 
+				name="loginUsername"><br> 
+			<label for="loginId">ユーザID</label> 
+			<input 
+				type="text" 
+				id="loginId"
+				name="loginId"><br> 
+			<label for="loginPassword">パス</label>
+			<input 
+				type="password" 
+				id="loginPassword" 
+				name="loginPassword"><br>
+			<button type="submit">追加</button>
+		</form>
+		
+		<h3>ユーザ検索</h3>
+		<form 
+			action="serch" 
+			method="post">
+			<label for="id">ID</label> 
+			<input 
+				type="text"
+				id="id" 
+				name="id"><button type="submit">検索</button>
+		</form>
+		<table>
+			<tr>
+				<th>ID</th>
+				<th>名前</th>
+				<th>ユーザーID</th>
+				<th>パスワード</th>
+			</tr>
+			<tr th:object="${userid}">
+				<td th:text="*{id}"></td>
+				<td th:text="*{loginUsername}"></td>
+				<td th:text="*{loginId}"></td>
+				<td th:text="*{loginPassword}"></td>
+			</tr>
+		</table><br>
+		
+	</body>
+</html>
