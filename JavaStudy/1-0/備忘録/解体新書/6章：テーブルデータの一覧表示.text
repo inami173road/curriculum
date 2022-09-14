@@ -1,0 +1,95 @@
+６章：テーブルデータの一覧表示
+    プロジェクト名：ToDo
+        目的：エンティティ、リポジトリ、コントローラーの連携の確認
+        挙動：DBからテーブルを参照
+
+        todolist
+            controller
+                TodoListController
+            entity
+                Todo
+            repository
+                TodoRepository
+
+        TodoListController.java（Controllerクラス）
+                役目としては、GETリクエストを受け取ったらtodoテーブルを検索。
+                その結果を一覧画面(todoList.html)に返す。
+                サービスクラスはまた今度。
+
+            Todo.java（Entityクラス）
+                Entityクラスのプロパティ名が１文字でも異なるとエラーになる。
+                ブラウザーで「line」と検索すればどのプロパティがエラーが分かる。
+
+                Todoクラスのプロパティはtodoテーブルの列と１対１で対応している
+                （この「プロパティ」とはレコードと対応する変数のこと）
+                Todoオブジェクト１つで、１レコードを表している。
+                テーブルのレコードを表すクラスを「Entityクラス」と呼ぶ。
+
+            TodoRepository.java（Repositoryクラス）
+                extends JpaRepository<Todo, Integer>
+                    // 第１引数( Todo )：このリポジトリが対象となるEntityクラス
+                    // 第２引数( Integer )：対象のEntityクラスの＠Idで指定されているプロパティの型
+
+            todoList.html
+                三項演算子
+                    条件式 ？ 式１：式２
+                    trueなら式１、falseなら式２
+                    th:text="${ todo.importance==1 ? '★★★' : '★' }"
+                        todo.importance に１が入れば '★★★'、
+                        でなければ '★'
+                        「:」は OR
+                パスの記述
+                    SpringBootの場合CSSのパスの記述は少し特殊。
+                    「テンプレートhtmlファイルからのパス」ではなく、
+                    「Web上でアクセス・表示されているURLからのパス」にしなければならない。
+                        × <link href="../static/css/style.css" rel="stylesheet">
+                        ○ <link th:href="@{/css/style.css}" rel="stylesheet">
+                            × の場合プロジェクト内のパス自体は間違っていない。
+                            th:refにリンクURL式を使うと、staticフォルダを起点にしたパスと解釈される。
+                            th:href="@{/○○（フォルダ）/○○.css（ファイル）}"
+            
+            application.properties
+                DB連携する際は、必ずに記述する。(mysqlの場合)
+                    spring.datasource.url=jdbc:mysql://localhost/tododb
+                    spring.datasource.username=root
+                    spring.datasource.password=password
+                    spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+                pgadmin
+                    pgadminに接続しDB連携ができない。
+                    代わりにmysqlでDB連携をした。
+                    SQLが変わっても対応するようにしなければならない。
+                    現在、対応策を検討中
+
+            DB作成
+                CREATE DATABASE tododb;
+                SHOW DATABASES;
+                USE tododb;
+                SELECT DATABASE();
+            テーブル作成
+                CREATE TABLE todo(
+                            id SERIAL AUTO_INCREMENT,
+                            title TEXT,
+                            importance INTEGER,
+                            urgency INTEGER,
+                            deadline DATE,
+                            done TEXT,
+                            PRIMARY KEY(id)
+                        );
+                SHOW TABLES;
+                DESC todo;
+            レコードの挿入
+                INSERT INTO todo (title,importance,urgency,deadline,done)
+                    VALUES
+                        ('todo1',0,0,'20201001','N'),
+                        ('todo2',0,1,'20201002','Y'),
+                        ('todo3',1,0,'20201003','N'),
+                        ('todo4',1,1,'20201004','Y');
+                SELECT * FROM todo;
+
+今後作成予定のプロジェクト(CRUDを目標に)
+    Todolist2(CREATE)
+        入力画面の実装
+    Todolist3(UPDATE・DELETE)
+        一覧画面の更新・削除の実装
+    Todolist4(Read)
+        検索条件フォームの実装
