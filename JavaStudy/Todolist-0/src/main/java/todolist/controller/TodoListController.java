@@ -15,7 +15,7 @@ import todolist.repository.TodoRepository;
 public class TodoListController{
 	private final TodoRepository todoRepository;
 
-	@GetMapping("/todo")
+	@GetMapping("/")
 	public ModelAndView showTodoList(ModelAndView mv){
 		//一覧を検索して表示する
 		mv.setViewName("todoList");

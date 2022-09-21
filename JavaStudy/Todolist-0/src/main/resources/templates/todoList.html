@@ -5,12 +5,13 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="../static/css/style.css">
-	<title>ToDoList</title>
+	<!-- SpringBootの場合CSSのパスの記述は少し特殊 -->
+	<link th:href="@{/css/style.css}" rel="stylesheet">
+	<title>ToDoListAAAA</title>
 </head>
 
 <body>
-	<table>
+	<table border="1">
 		<tr>
 			<th>id</th>
 			<th>件名</th>
@@ -19,7 +20,7 @@
 			<th>期限</th>
 			<th>完了</th>
 		</tr>
-		<tr th:each="todo:${todolist}">
+		<tr th:each="todo:${todoList}">
 			<td th:text="${todo.id}"></td>
 			<td th:text="${todo.title}"></td>
 			<!-- 
@@ -30,7 +31,7 @@
 			<td th:text="${todo.importance == 1?'★★★':'★'}"></td>
 			<td th:text="${todo.urgency == 1?'★★★':'★'}"></td>
 			<td th:text="${todo.deadline}"></td>
-			<td th:text="${todo.done== 'Y'?'完了':”}"></td>
+			<td th:text="${todo.done== 'Y'?'完了':''}"></td>
 		</tr>
 	</table>
 </body>

@@ -1,4 +1,4 @@
-６章：テーブルデータの一覧表示
+６章：DBの一覧表示
     プロジェクト名：ToDo
         目的：エンティティ、リポジトリ、コントローラーの連携の確認
         挙動：DBからテーブルを参照
@@ -93,3 +93,36 @@
         一覧画面の更新・削除の実装
     Todolist4(Read)
         検索条件フォームの実装
+
+
+お疲れ様です。
+本日のアウトプットしていきます。
+
+application.properties
+    Mysql
+        spring.datasource.url=jdbc:mysql://localhost/tododb
+        spring.datasource.username=root
+        spring.datasource.password=password
+        spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+    Postgres
+        spring.datasource.url=jdbc:postgresql://localhost:5432/tododb
+        spring.datasource.username=postgres
+        spring.datasource.password=postgres
+        spring.datasource.driver-class-name=org.postgresql.Driver
+    Oracle
+        spring.datasource.url=jdbc:oracle:thin:@localhost:<ポート番号>:orcl
+        spring.datasource.username=<username>
+        spring.datasource.password=<password>
+        spring.datasource.driverClassName=oracle.jdbc.driver.OracleDriver
+
+
+    DBを変更する場合プロパティファイルの中身とプロジェクト作成の際にライブラリの連携するDBに合わせるだけ。
+    srcファイル自体にDBに対して何か合わせる必要はない。
+    １文字でも異なるとドライバのデータソース名を１文字でもスペルミスをすると、
+    ドライバがないですというエラーを出すので、エラーしたときはまずスペルミスを疑う。
+
+    また違うDBになると、DBのurlとドライバクラスのデータソースの記述はそれぞれ固有なので把握すること。
+    ちなみに oracle の元々の意味は「神託」。
+    oracle社は略語の頭文字をつなげたとしているがアプロニム的な感じが否めない
+    ちなみに中国語表記は「甲骨文」。
+

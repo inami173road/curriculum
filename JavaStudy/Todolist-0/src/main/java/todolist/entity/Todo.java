@@ -17,9 +17,8 @@ import lombok.Data;
 
 public class Todo {
 	
-	
 	@Id //このアノテーションをつけることで主キーと対応されるとFW側で解釈される
-	@GeneratedValue(strategy = GenerationType.IDENTITY)  // 
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private Integer id;
 	
@@ -32,8 +31,8 @@ public class Todo {
 	@Column(name = "urgency")
 	private Integer urgency ;
 	
-	@Column(name = "dedaline")
-	private Date dedaline ;
+	@Column(name = "deadline")
+	private Date deadline ;
 	
 	@Column(name = "done")
 	private String done ;
